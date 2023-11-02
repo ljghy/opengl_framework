@@ -49,6 +49,10 @@ public:
 
     void resize(int width, int height);
 
+    GLenum internalFormat() const { return m_info.internalFmt; }
+    GLenum dataFormat() const { return m_info.dataFmt; }
+    GLenum dataType() const { return m_info.dataType; }
+
 private:
     unsigned int m_id;
     unsigned int m_target;

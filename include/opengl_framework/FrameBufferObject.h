@@ -53,6 +53,10 @@ public:
 
     void resize(int width, int height);
 
+    void readColorAttachment(void *buffer, GLenum format = GL_RGBA,
+                             GLenum type = GL_UNSIGNED_BYTE, int x = 0,
+                             int y = 0, int w = -1, int h = -1) const;
+
 private:
     unsigned int m_id;
 
