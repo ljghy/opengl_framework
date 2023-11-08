@@ -9,6 +9,16 @@ if (NOT CMAKE_BUILD_TYPE)
     set(CMAKE_BUILD_TYPE "Release" CACHE STRING "" FORCE)
 endif()
 
+if (NOT BUILD_SHARED_LIBS)
+    set(BUILD_SHARED_LIBS ON CACHE BOOL "" FORCE)
+endif()
+
+if (MSVC)
+    add_compile_options(/W4 /MP)
+else() # GCC
+    add_compile_options(-Wall -Wextra -fPIC)
+endif()
+
 set(CMAKE_CXX_STANDARD 17)
 
 file(GLOB SOURCES src/*.c src/*.cpp)
