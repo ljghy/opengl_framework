@@ -7,12 +7,13 @@
 #include <vector>
 #include <cassert>
 
+#include <opengl_framework/APIConfig.h>
 #include <opengl_framework/VertexBufferObject.h>
 
 namespace ogl
 {
 
-class VertexBufferLayout
+class OPENGL_FRAMEWORK_API VertexBufferLayout
 {
 public:
     static unsigned int getSize(unsigned int ty)
@@ -75,7 +76,7 @@ private:
     bool                      m_useSubData;
 };
 
-class VertexArrayObject
+class OPENGL_FRAMEWORK_API VertexArrayObject
 {
 public:
     VertexArrayObject();

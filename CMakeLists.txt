@@ -9,12 +9,8 @@ if (NOT CMAKE_BUILD_TYPE)
     set(CMAKE_BUILD_TYPE "Release" CACHE STRING "" FORCE)
 endif()
 
-if (NOT BUILD_SHARED_LIBS)
-    set(BUILD_SHARED_LIBS ON CACHE BOOL "" FORCE)
-endif()
-
 if (MSVC)
-    add_compile_options(/W4 /MP)
+    add_compile_options(/W4 /MP /wd4251)
 else() # GCC
     add_compile_options(-Wall -Wextra -fPIC)
 endif()
@@ -22,6 +18,16 @@ endif()
 set(CMAKE_CXX_STANDARD 17)
 
 file(GLOB SOURCES src/*.c src/*.cpp)
+
+add_library(opengl_framework_config INTERFACE)
+
+if (WIN32 AND BUILD_SHARED_LIBS)
+    target_compile_definitions(opengl_framework_config
+        INTERFACE
+            OPENGL_FRAMEWORK_EXPORTS_BUILD_DLL
+            GLAD_GLAPI_EXPORT
+        )
+endif()
 
 add_library(opengl_framework ${SOURCES})
 
@@ -31,7 +37,23 @@ PUBLIC
     $<INSTALL_INTERFACE:include/opengl_framework-${PROJECT_VERSION}>
 )
 
+target_link_libraries(opengl_framework
+PUBLIC
+    opengl_framework_config
+)
+
+target_compile_definitions(opengl_framework
+PRIVATE
+    OPENGL_FRAMEWORK_EXPORTS
+    GLAD_GLAPI_EXPORT_BUILD
+)
+
 install(TARGETS opengl_framework
+    EXPORT opengl_framework-targets
+    DESTINATION lib/opengl_framework-${PROJECT_VERSION}
+)
+
+install(TARGETS opengl_framework_config
     EXPORT opengl_framework-targets
     DESTINATION lib/opengl_framework-${PROJECT_VERSION}
 )

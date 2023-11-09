@@ -3,10 +3,11 @@
 
 #include <glad/glad.h>
 
+#include <opengl_framework/APIConfig.h>
 namespace ogl
 {
 
-struct Texture2DCreateInfo
+struct OPENGL_FRAMEWORK_API Texture2DCreateInfo
 {
     int width;
     int height;
@@ -21,7 +22,7 @@ struct Texture2DCreateInfo
     GLenum filterMode  = GL_LINEAR;
 };
 
-class Texture2D
+class OPENGL_FRAMEWORK_API Texture2D
 {
 
 public:

@@ -4,10 +4,12 @@
 #include <string>
 #include <unordered_map>
 
+#include <opengl_framework/APIConfig.h>
+
 namespace ogl
 {
 
-class Shader
+class OPENGL_FRAMEWORK_API Shader
 {
 public:
     Shader();

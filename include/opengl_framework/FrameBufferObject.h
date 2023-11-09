@@ -3,13 +3,14 @@
 
 #include <memory>
 
+#include <opengl_framework/APIConfig.h>
 #include <opengl_framework/Texture2D.h>
 #include <opengl_framework/RenderBufferObject.h>
 
 namespace ogl
 {
 
-class FrameBufferObject
+class OPENGL_FRAMEWORK_API FrameBufferObject
 {
 public:
     FrameBufferObject();

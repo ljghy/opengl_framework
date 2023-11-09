@@ -3,10 +3,12 @@
 
 #include <glad/glad.h>
 
+#include <opengl_framework/APIConfig.h>
+
 namespace ogl
 {
 
-class IndexBufferObject
+class OPENGL_FRAMEWORK_API IndexBufferObject
 {
 public:
     IndexBufferObject();
