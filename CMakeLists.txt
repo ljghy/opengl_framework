@@ -21,7 +21,7 @@ file(GLOB SOURCES src/*.c src/*.cpp)
 
 add_library(opengl_framework_config INTERFACE)
 
-if (WIN32 AND BUILD_SHARED_LIBS)
+if (BUILD_SHARED_LIBS)
     target_compile_definitions(opengl_framework_config
         INTERFACE
             OPENGL_FRAMEWORK_EXPORTS_BUILD_DLL
@@ -30,6 +30,7 @@ if (WIN32 AND BUILD_SHARED_LIBS)
 endif()
 
 add_library(opengl_framework ${SOURCES})
+add_library(opengl_framework::opengl_framework ALIAS opengl_framework)
 
 target_include_directories(opengl_framework
 PUBLIC
