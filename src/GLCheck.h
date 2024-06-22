@@ -15,7 +15,7 @@
         GLenum err = glGetError();                                             \
         if (err != GL_NO_ERROR)                                                \
         {                                                                      \
-            fprintf(stderr, "OpenGL error %d at %s:%d, %s.\n", err, __FILE__,    \
+            fprintf(stderr, "OpenGL error %d at %s:%d, %s.\n", err, __FILE__,  \
                     __LINE__, __FUNCTION__);                                   \
             assert(0);                                                         \
         }                                                                      \
