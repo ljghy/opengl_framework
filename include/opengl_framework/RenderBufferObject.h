@@ -1,6 +1,8 @@
 #ifndef OPENGL_RENDER_BUFFER_OBJECT_H_
 #define OPENGL_RENDER_BUFFER_OBJECT_H_
 
+#include <glad/glad.h>
+
 #include <opengl_framework/APIConfig.h>
 
 namespace ogl
