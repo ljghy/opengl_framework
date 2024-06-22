@@ -19,7 +19,7 @@ file(GLOB SOURCES src/*.c src/*.cpp)
 
 add_library(opengl_framework_config INTERFACE)
 
-option(OPENGL_FRAMEWORK_BUILD_SHARED_LIBS "Build shared libraries" ON)
+option(OPENGL_FRAMEWORK_BUILD_SHARED_LIBS "Build shared libraries" OFF)
 
 if(BUILD_SHARED_LIBS OR OPENGL_FRAMEWORK_BUILD_SHARED_LIBS)
     target_compile_definitions(
